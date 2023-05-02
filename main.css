@@ -1,0 +1,157 @@
+/* This was an alernate, but incorrect method to have the form hidden initially: */
+/* #form {
+  visibility: hidden;
+} */
+
+.navigationBar {
+  font-family: 'Jost', sans-serif;
+  font-family: 'Oswald', sans-serif;
+  font-family: 'PT Sans', sans-serif;
+  font-family: 'Shadows Into Light', cursive;
+}
+.card {
+  text-align: center;
+  font-family: 'EB Garamond', serif;
+  font-family: 'Jost', sans-serif;
+  font-family: 'Oswald', sans-serif;
+  font-family: 'PT Sans', sans-serif;
+  font-family: 'Shadows Into Light', cursive;
+}
+
+.card-header {
+  font-weight: em;
+  font-size: 2rem;
+  color: cadetblue ;
+  font-family: 'EB Garamond', serif;
+  font-family: 'Jost', sans-serif;
+  font-family: 'Oswald', sans-serif;
+  font-family: 'PT Sans', sans-serif;
+  font-family: 'Shadows Into Light', cursive;
+}
+
+.card-title {
+  font-weight: bold;
+  font-size: 20px;
+  font-family: 'EB Garamond', serif;
+  font-family: 'Jost', sans-serif;
+  font-family: 'Oswald', sans-serif;
+  font-family: 'PT Sans', sans-serif;
+  font-family: 'Shadows Into Light', cursive;
+}
+
+.card-text {
+  font-weight: bold;
+}
+
+#sortButton {
+  text-align: center;
+  font-family: 'Jost', sans-serif;
+  font-family: 'Oswald', sans-serif;
+  font-family: 'PT Sans', sans-serif;
+  font-family: 'Shadows Into Light', cursive;
+}
+
+.houses {
+  margin: 50px;
+  /* color: rgb(0, 128, 255) */
+}
+
+/* .sort-style-button {
+  background-color: rgba(17, 17, 251, 0.827);
+  border-radius: 2rem; */
+/* } */
+
+/* .sortFilterButton {
+  background-color: gold;
+  margin-bottom: 50px;
+} */
+
+.card-container {
+  border: 10px solid darkgrey;
+  /* display: inline-block; */
+  margin: 5px;
+  padding-top: 20px;
+  /* max-width: 100%; */
+}
+
+#studentCards {
+  background-color: white;
+  display: inline-block;
+  border: 1px solid darkgrey;
+  margin: 1%;
+  max-width: 50%;
+}
+
+#expelledCards {
+  background-color: black;
+  display: inline-block;
+  border: 1px solid darkgrey;
+  margin: 1%;
+  max-width: 50%;
+}
+
+.first-year-house {
+  display: flex;
+  justify-content: left;
+}
+
+.expelled {
+  display: flex;
+  justify-content: right;
+}
+
+/* .container-max-widths {
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1320px
+}; */
+
+.container-group {
+  min-height: 300px;
+  border: 1px solid darkgrey;
+  margin: 3rem;
+}
+
+.firstYears {
+  border: 1px solid darkgrey;
+  /* min-height: 300px; */
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  text-align: center;
+}
+
+#firstYearsTitle {
+  color: green;
+}
+
+.voldArmy {
+  border: 1px solid darkgrey;
+  /* min-height: 300px; */
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  text-align: center;
+}
+
+#voldemortArmy {
+  text-align: center;
+  color: darkred;
+}
+
+.float-container {
+  border: 3px solid #fff;
+  padding: 20px;
+}
+
+.float-child {
+  width: 50%;
+  float: left;
+  padding: 20px;
+  border: 5px solid darkgrey;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  background-color: beige;
+}  
