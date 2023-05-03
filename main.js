@@ -1,34 +1,35 @@
-//  ************ MASTER FUNCTION TO RENDER TO DOM ***********
-const renderToDom = (divId, htmlToRender) => {
-  const selectedDiv = document.querySelector(divId);
-  selectedDiv.innerHTML = htmlToRender;
-}
 
 // ************ REFERENCE STUDENT ARRAYS ***************
 const students = [
   {
     id: 1,
     name: "Harry Potter",
-    house: "Gryffindor"
+    house: "Gryffindor",
   },
   {
     id: 2,
     name: "Cho Chang",
-    house: "Ravenclaw"
+    house: "Ravenclaw",
   },
   {
     id: 3,
     name: "Cedric Diggory",
-    house: "Hufflepuff"
+    house: "Hufflepuff",
   },
   {
     id: 4,
     name: "Draco Malfoy",
-    house: "Slytherin"
+    house: "Slytherin",
   },
 ];
 
 const expelledStudents = [];
+
+//  ************ MASTER FUNCTION TO RENDER TO DOM ***********
+const renderToDom = (divId, htmlToRender) => {
+  const selectedDiv = document.querySelector(divId);
+  selectedDiv.innerHTML = htmlToRender;
+}
 
 // ********* HOME PAGE ************
 const welcome = () => {
@@ -118,7 +119,7 @@ const studentSortForm = () => {
 //******** STUDENT CARDS *******
 const showStudentCards = (array) => {
   let domString = "";
-  for (student of students) {
+  for (student of array) {
     domString += `<div class="card mb-3" style="display: inline-block; max-width: 50%">
     <div class="row g-0">
       <div class="col-md-4">
@@ -190,40 +191,47 @@ const filterHouseButtons = () => {
 
 const filter = (array, houseString) => {
   const filteredStudentArray = [];
+  // **** for of loop requires the name of the array "object" to be passed in with the structure it is within, which is an "array" not the actual name of the array so its passed "array" as evidenced below this line *******
   for(const student of array) {
     if(student.house === houseString){
       filteredStudentArray.push(student);
     }
   }
+    console.log(filteredStudentArray);
   return filteredStudentArray;
 };
 
 const filterButtons = () => {
   const showAll = document.querySelector("#all");
-  const showGryiffindor = document.querySelector("#gryffindor");
+  const showGryffindor = document.querySelector("#gryffindor");
   const showHufflepuff = document.querySelector("#hufflepuff");
   const showRavenclaw = document.querySelector("#ravenclaw");
   const showSlytherin = document.querySelector("#slytherin");
 
   showAll.addEventListener('click', () => showStudentCards(students));
   
-  showGryiffindor.addEventListener('click', () => {
+  showGryffindor.addEventListener('click', () => {
     const showAllGryffindor = filter(students, 'Gryffindor');
+    //console log is added on this function to reveal that the cards are actually being called/filtered as expected, but they were not rendering due to an error in the parent filter function***********
+    console.log(showAllGryffindor);
     showStudentCards(showAllGryffindor);
   });
 
   showHufflepuff.addEventListener('click', () => {
-    const showAllHufflepuff = filter(students, 'Gryffindor');
+    const showAllHufflepuff = filter(students, "Hufflepuff");
+    console.log(showAllHufflepuff);
     showStudentCards(showAllHufflepuff);
   });
 
   showRavenclaw.addEventListener('click', () => {
-    const showAllRavenclaw = filter(students, 'Gryffindor');
+    const showAllRavenclaw = filter(students, 'Ravenclaw');
+    console.log(showAllRavenclaw);
     showStudentCards(showAllRavenclaw);
   });
 
   showSlytherin.addEventListener('click', () => {
-    const showAllSlytherin = filter(students, 'Gryffindor');
+    const showAllSlytherin = filter(students, 'Slytherin');
+    console.log(showAllSlytherin);
     showStudentCards(showAllSlytherin);
   });
 };
@@ -257,10 +265,13 @@ const createStudent = () => {
     }
     students.push(newCreatedStudent);
     showStudentCards(students);
-    form.reset();
+    // Form reset MUST be named after the variable/const it was assigned  *******
+    studentForm.reset();
   }
-  studentForm.addEventListener("#sortButton", sortForm); 
+  //The “#submit” button was formerly the “#sortButton” . I made it sortButton because I gave an ID to the button responsible for the click event, but apparently the instructors agreed it needed to be changed to the TYPE of button responsible instead, which was type=submit and so form reset required it as the location to listen for as seen below this line:
+  studentForm.addEventListener("submit", sortForm); 
 };
+
 
 // ********** EVENT LISTENERS **********
 const sortButton = document.querySelector("#showForm");
@@ -271,6 +282,6 @@ sortButton.addEventListener('click', (e) => {
   createStudent();
   filterHouseButtons();
   filterButtons();
-  // showStudentCards(students);
-  // showExpelledCards(expelledStudents);
+  showStudentCards(students);
+  showExpelledCards(expelledStudents);
 })

@@ -9,54 +9,6 @@
   <link rel="stylesheet" href="main.css">
 </head>
 <body>
-  <!-- Below welcome html message inserted into DOM function -->
-  <!-- <div class="navigationBar">
-    <nav class="navbar bg-primary" data-bs-theme="dark">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">Sorting Hat</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarText">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Students</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Expelled</a>
-            </li>
-          </ul>
-          <span class="navbar-text">
-            Hogwarts Class 2023-2024
-          </span>
-        </div>
-      </div>
-    </nav>
-  </div>
-  <div class="Introduction">
-    <div class="card">
-      <div class="card-header">
-        Welcome to Hogwarts School of Wizardry
-      </div>
-      <div class="card-body-greeting" style="border: 10px solid darkgrey; margin: 10px">
-        <h5 class="card-title">Assignment System</h5>
-        <p class="card-text">Welcome aspiring students! Please click the button below to begin the initation and House assignment process..</p>
-        <a href="#" class="btn btn-primary" id="showForm" style="margin-bottom: 10px">Access Sorting Hat</a>
-      </div>
-    </div>
-  </div> -->
-    <!-- ********* Below form needs to appear and reset only once above button, "Access Sorting Hat" button is clicked - this form will be rendered to the DOM in the JS file; not hard coded to HTML ******* -->
-    <!-- <form id="nameForm">
-      <div class="mb-3">
-        <label for="student-name" class="form-name">First Year's Name</label>
-        <input type="name" class="form-control" id="exampleStudentName" aria-describedby="studentName">
-        <div id="emailHelp" class="form-text"></div>
-      </div>
-      <button type="submit" class="btn btn-primary" id="submitButton">Submit</button>
-    </form> -->
   <div id="welcome"></div>
   <div id="studentSortForm"></div>
   <div id="filterHouseButtons"></div>
@@ -74,10 +26,10 @@
     <!-- ******* Container code below solved spacing issue for side-by-side divs ******** -->
     <div class="float-container">
       <div class="float-child" id="firstYears">
-      <div class="green" id="studentCards"></div>
+      <div id="studentCards"></div>
     </div>
     <div class="float-child" id="voldArmy">
-      <div class="blue" id="expelledCards"></div>
+      <div id="expelledCards"></div>
       </div>
     </div>
   </div>

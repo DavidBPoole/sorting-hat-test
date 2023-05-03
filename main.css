@@ -79,7 +79,7 @@
   display: inline-block;
   border: 1px solid darkgrey;
   margin: 1%;
-  max-width: 50%;
+  width: 100%;
 }
 
 #expelledCards {
@@ -87,7 +87,7 @@
   display: inline-block;
   border: 1px solid darkgrey;
   margin: 1%;
-  max-width: 50%;
+  width: 100%;
 }
 
 .first-year-house {
@@ -108,17 +108,17 @@
   xxl: 1320px
 }; */
 
-.container-group {
+/* .container-group {
   min-height: 300px;
   border: 1px solid darkgrey;
   margin: 3rem;
-}
+} */
 
 .firstYears {
   border: 1px solid darkgrey;
   /* min-height: 300px; */
   width: 100%;
-  display: flex;
+  display: inline-block;
   flex-flow: row wrap;
   text-align: center;
 }
