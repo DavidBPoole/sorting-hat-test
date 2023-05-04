@@ -25,10 +25,14 @@ const students = [
 
 const expelledStudents = [];
 
-//  ************ MASTER FUNCTION TO RENDER TO DOM ***********
+//  ***** MASTER FUNCTION TO RENDER TO DOM *****
+//The Document Object Model (DOM) is a programming interface for web documents. It represents the page so that programs can change the document structure, style, and content.
 const renderToDom = (divId, htmlToRender) => {
+  //renderToDom function takes in two parameters: "divId" and "htmlToRender"  
   const selectedDiv = document.querySelector(divId);
+  //HTML element is selected with an ID of "divId" passed as an argument using "querySelector" method of the document object, and assigns it to variable "selectedDiv"
   selectedDiv.innerHTML = htmlToRender;
+  //This is setting the "innerHTML" of the "selectedDiv" element to the "htmlToRender" argument passed to the "renderToDom" function which replaces any HTML content already inside the selected element with the new html content. It reassigns new html to the innerHTML of the selectedDiv.
 }
 
 // ********* HOME PAGE ************
@@ -91,7 +95,7 @@ const expelledTitle = () => {
   renderToDom(`#voldArmy`, domString);
 };
 
-//input form
+// **** USER NAME INPUT FORM *****
 const studentSortForm = () => {
   let domString = `<form id="nameForm">
   <div class="mb-3">
@@ -122,8 +126,7 @@ const showStudentCards = (array) => {
   for (student of array) {
     domString += `<div class="card mb-3" style="display: inline-block; max-width: 50%">
     <div class="row g-0">
-      <div class="col-md-4">
-      </div>
+      <div class="col-md-4"></div>
         <div class="card-body">
           <p class="card-text">${student.name}</p>
           <p class="card-text">${student.house}</p>
@@ -185,9 +188,14 @@ const filterHouseButtons = () => {
     <button type="button" class="btn btn-primary" id="ravenclaw">Ravenclaw</button>
     <button type="button" class="btn btn-success" id="slytherin">Slytherin</button>
   </div>`;
-
   renderToDom("#filterHouseButtons", domString);
 };
+
+//Function that takes an array and a value as arguments, in this case the value is "houseString". The function will filter through an array of objects, in this case the object array is "students", based on the selected value of "house" returning a newly created array of objects only containing the matching value selected to filter, "house". Another way of writing this filter is 
+//function filter(array, value) {
+//  return array.filter(item => item.house === value);  
+//};
+//array.filter methos creates new array with all elements clearing the function's test parameters. This test is taking an item from the array and checking to see if the house property is equal to the given value. If they match, the item is added to the new array being returned by the filter() method.
 
 const filter = (array, houseString) => {
   const filteredStudentArray = [];
@@ -203,16 +211,18 @@ const filter = (array, houseString) => {
 
 const filterButtons = () => {
   const showAll = document.querySelector("#all");
+  //html element ID "all" is selected and assigned to variable "showAll" with querySelector method of document object. The Document Object Model (DOM) is a programming interface for web documents. It represents the page so that programs can change the document structure, style, and content. The querySelector method allows the targeting of an ID tag "#" with the specific ID name assigned to it.
   const showGryffindor = document.querySelector("#gryffindor");
   const showHufflepuff = document.querySelector("#hufflepuff");
   const showRavenclaw = document.querySelector("#ravenclaw");
   const showSlytherin = document.querySelector("#slytherin");
 
   showAll.addEventListener('click', () => showStudentCards(students));
-  
+  //An event condition or 'listener' is assigned to the variable "showAll" representing the "all" element triggering a callback function upon click of the button.
+
   showGryffindor.addEventListener('click', () => {
     const showAllGryffindor = filter(students, 'Gryffindor');
-    //console log is added on this function to reveal that the cards are actually being called/filtered as expected, but they were not rendering due to an error in the parent filter function***********
+    //console log is added on this function to reveal that the cards are actually being called/filtered as expected, but they were not rendering due to an error in the parent filter function involving correct name/value pairs; "array".
     console.log(showAllGryffindor);
     showStudentCards(showAllGryffindor);
   });
@@ -239,10 +249,12 @@ const filterButtons = () => {
 //*********** CREATE NEW STUDENT FORM **********
 const createStudent = () => {
   const studentForm = document.querySelector('form');
+
   const sortForm = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
 
     const random = Math.floor(Math.random() * 4) +1;
+
     let randomHouse = ""
     switch (random) {
       case 1:
@@ -265,14 +277,19 @@ const createStudent = () => {
     }
     students.push(newCreatedStudent);
     showStudentCards(students);
-    // Form reset MUST be named after the variable/const it was assigned  *******
-    studentForm.reset();
   }
   //The “#submit” button was formerly the “#sortButton” . I made it sortButton because I gave an ID to the button responsible for the click event, but apparently the instructors agreed it needed to be changed to the TYPE of button responsible instead, which was type=submit and so form reset required it as the location to listen for as seen below this line:
-  studentForm.addEventListener("submit", sortForm); 
+  studentForm.addEventListener("submit", (e) => {
+    if (document.getElementById("inputNewStudent").value === "") {
+      alert("Please input name");
+    } else {sortForm()};
+    e.preventDefault();
+    // Form reset MUST be named after the variable/const it was assigned  *******
+    studentForm.reset();
+  }); 
 };
 
-
+//studentForm.addEventListener("submit", sortForm); ****
 // ********** EVENT LISTENERS **********
 const sortButton = document.querySelector("#showForm");
 sortButton.addEventListener('click', (e) => {
